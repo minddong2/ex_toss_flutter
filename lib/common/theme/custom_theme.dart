@@ -54,5 +54,6 @@ enum CustomTheme {
       // textTheme: GoogleFonts.nanumMyeongjoTextTheme(
       //   ThemeData(brightness: Brightness.dark).textTheme,
       // ),
-      colorScheme: const ColorScheme.dark(background: AppColors.darkGrey));
+      scaffoldBackgroundColor: AppColors.veryDarkGrey,
+      colorScheme: const ColorScheme.dark(background: AppColors.veryDarkGrey));
 }
