@@ -50,5 +50,7 @@ abstract class AbstractThemeColors {
 
   Color get noti_backgroundColor => const Color.fromARGB(255, 18, 18, 18);
 
-  Color get lessImportantText => AppColors.grey;
+  Color get lessImportant => AppColors.grey;
+
+  Color get blueText => Colors.blueAccent;
 }
