@@ -18,7 +18,6 @@ class _NotificationScreenState extends State<NotificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.veryDarkGrey,
       body: CustomScrollView(
         slivers: [
           const SliverAppBar(

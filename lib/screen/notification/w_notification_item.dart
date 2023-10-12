@@ -24,7 +24,7 @@ class _NotificationItemWidgetState extends State<NotificationItemWidget> {
       onTap: widget.onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 10),
-        color: widget.notification.isRead? context.appColors.noti_backgroundColor : context.appColors.unreadColor,
+        color: widget.notification.isRead? context.backgroundColor : context.appColors.unreadColor,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
