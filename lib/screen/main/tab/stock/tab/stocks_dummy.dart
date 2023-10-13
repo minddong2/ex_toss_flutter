@@ -27,10 +27,28 @@ List<Stock> myInterestStocks = [
     stockName: '하이브',
   ),
   Stock(
+    stockImagePath: '$basePath/stock/interest_stock_05.png',
+    yesterdayClosePrice: 80000,
+    currentPrice: 82000,
+    stockName: 'LG헬로비전',
+  ),
+  Stock(
+    stockImagePath: '$basePath/stock/interest_stock_06.png',
+    yesterdayClosePrice: 80000,
+    currentPrice: 82000,
+    stockName: '대한전선',
+  ),
+  Stock(
+    stockImagePath: '$basePath/stock/interest_stock_07.png',
+    yesterdayClosePrice: 80000,
+    currentPrice: 82000,
+    stockName: 'SK하이닉스',
+  ),
+  Stock(
     stockImagePath: '$basePath/stock/interest_stock_08.png',
-    yesterdayClosePrice: 41600,
-    currentPrice: 41600,
-    stockName: '한화솔루션',
+    yesterdayClosePrice: 80000,
+    currentPrice: 82000,
+    stockName: '삼성전자',
   ),
   Stock(
     stockImagePath: '$basePath/stock/interest_stock_09.png',
