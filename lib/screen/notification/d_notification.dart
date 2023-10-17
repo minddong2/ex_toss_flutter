@@ -8,7 +8,7 @@ import 'package:nav/enum/enum_nav_ani.dart';
 class NoitificationDialog extends DialogWidget {
   final List<TossNotification> notifications;
 
-  NoitificationDialog(this.notifications, {super.key, super.animation = NavAni.Bottom});
+  NoitificationDialog(this.notifications, {super.key, super.animation = NavAni.Bottom, super.barrierDismissible = false});
 
   @override
   DialogState<NoitificationDialog> createState() => _NoitificationDialogState();
