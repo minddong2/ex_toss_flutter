@@ -22,7 +22,7 @@ class StockItem extends StatelessWidget {
         Column(crossAxisAlignment: CrossAxisAlignment.end,
           children: [
           ///(오늘의 가격- 전날의 가격) %
-          stock.todayPercentageString.text.color(stock.getPriceColor(context)).size(16).make(),
+          stock.todayPercentageString.text.color(stock.getTodayPercentageColor(context)).size(16).make(),
           "${stock.currentPrice.toComma()}원".text.color(context.appColors.lessImportant).make(),
 
         ],)

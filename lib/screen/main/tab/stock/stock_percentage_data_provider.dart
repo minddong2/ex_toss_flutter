@@ -26,7 +26,7 @@ abstract mixin class StockPercentageDataProvider {
           ? "+"
           : "-";
 
-  Color getPriceColor(BuildContext context) => isSame
+  Color getTodayPercentageColor(BuildContext context) => isSame
       ? context.appColors.lessImportant
       : isPlus
           ? context.appColors.plus

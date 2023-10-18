@@ -36,7 +36,7 @@ class _SearchHistoryStockListState extends State<SearchHistoryStockList>
                           Tap(
 
                               onTap: () {
-                                Nav.push(StockDetailScreen(stockName));
+                                Nav.push(StockDetail(stockName: stockName));
                               },
                               child: stockName.text.make()),
                           Tap(onTap: () {

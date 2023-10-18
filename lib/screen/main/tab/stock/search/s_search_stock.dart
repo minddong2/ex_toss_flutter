@@ -41,7 +41,7 @@ class _SearchStockScreenState extends State<SearchStockScreen> with SearchStockD
             ? ListView(
                 children: const [
                   SearchHistoryStockList(),
-                  PopularSearchStockList(),
+                  PopularSearchList(),
                 ],
               )
             : SearchAutoCompleteList(controller),
