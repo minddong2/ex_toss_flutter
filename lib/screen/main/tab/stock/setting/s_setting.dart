@@ -2,6 +2,7 @@ import 'package:fast_app_base/common/common.dart';
 import 'package:fast_app_base/common/data/prefs.dart';
 import 'package:fast_app_base/common/widget/w_big_button.dart';
 import 'package:fast_app_base/screen/main/tab/stock/setting/d_number.dart';
+import 'package:fast_app_base/screen/main/tab/stock/setting/w_animated_app_bar.dart';
 import 'package:fast_app_base/screen/opensource/s_opensource.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,56 +17,97 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
+  final scrollController = ScrollController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: '설정'.text.make(),
-      ),
-      body: ListView(
+      body: Stack(
         children: [
-          //switch
-          Obx(
-            () =>
-                SwitchMenu('푸시 설정', Prefs.isPushOnRx.get(), onChanged: (isOn) {
-              Prefs.isPushOnRx.set(isOn);
-            }),
+          ListView(
+            controller: scrollController,
+            padding: EdgeInsets.only(top: 150),
+            children: [
+              //switch
+              Obx(
+                () => SwitchMenu('푸시 설정', Prefs.isPushOnRx.get(),
+                    onChanged: (isOn) {
+                  Prefs.isPushOnRx.set(isOn);
+                }),
+              ),
+              Obx(() => Slider(
+                  value: Prefs.sliderPosition.get(),
+                  onChanged: (value) {
+                    Prefs.sliderPosition.set(value);
+                  })),
+              Obx(
+                () => BigButton(
+                  '날짜 ${Prefs.birthday.get() == null ? "" : Prefs.birthday.get()?.formattedDate}',
+                  onTap: () async {
+                    final date = await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime.now().subtract(90.days),
+                        lastDate: DateTime.now().add(90.days));
+                    if (date != null) {
+                      Prefs.birthday.set(date);
+                    }
+                  },
+                ),
+              ),
+              Obx(
+                () => BigButton(
+                  '저장된 숫자 ${Prefs.number.get()}',
+                  onTap: () async {
+                    final number = await NumberDialog().show();
+                    if (number != null) {
+                      Prefs.number.set(number);
+                    }
+                  },
+                ),
+              ),
+              BigButton('오픈소스 화면', onTap: () async {
+                Nav.push(const OpensourceScreen());
+              }),
+              BigButton('오픈소스 화면', onTap: () async {
+                Nav.push(const OpensourceScreen());
+              }),
+              BigButton('오픈소스 화면', onTap: () async {
+                Nav.push(const OpensourceScreen());
+              }),
+              BigButton('오픈소스 화면', onTap: () async {
+                Nav.push(const OpensourceScreen());
+              }),
+              BigButton('오픈소스 화면', onTap: () async {
+                Nav.push(const OpensourceScreen());
+              }),
+              BigButton('오픈소스 화면', onTap: () async {
+                Nav.push(const OpensourceScreen());
+              }),
+              BigButton('오픈소스 화면', onTap: () async {
+                Nav.push(const OpensourceScreen());
+              }),
+              BigButton('오픈소스 화면', onTap: () async {
+                Nav.push(const OpensourceScreen());
+              }),
+              BigButton('오픈소스 화면', onTap: () async {
+                Nav.push(const OpensourceScreen());
+              }),
+              BigButton('오픈소스 화면', onTap: () async {
+                Nav.push(const OpensourceScreen());
+              }),
+              BigButton('오픈소스 화면', onTap: () async {
+                Nav.push(const OpensourceScreen());
+              }),
+              BigButton('오픈소스 화면', onTap: () async {
+                Nav.push(const OpensourceScreen());
+              }),
+              //slider
+              //date time
+              //number
+            ],
           ),
-          Obx(() => Slider(
-              value: Prefs.sliderPosition.get(),
-              onChanged: (value) {
-                Prefs.sliderPosition.set(value);
-              })),
-          Obx(
-            () => BigButton(
-              '날짜 ${Prefs.birthday.get() == null ? "" : Prefs.birthday.get()?.formattedDate}',
-              onTap: () async {
-                final date = await showDatePicker(
-                    context: context,
-                    initialDate: DateTime.now(),
-                    firstDate: DateTime.now().subtract(90.days),
-                    lastDate: DateTime.now().add(90.days));
-                if (date != null) {
-                  Prefs.birthday.set(date);
-                }
-              },
-            ),
-          ),
-          Obx(
-            () => BigButton(
-              '저장된 숫자 ${Prefs.number.get()}',
-              onTap: () async {
-                final number = await NumberDialog().show();
-                if (number != null) {
-                  Prefs.number.set(number);
-                }
-              },
-            ),
-          ),
-          BigButton('오픈소스 화면', onTap: () async{ Nav.push(const OpensourceScreen());})
-          //slider
-          //date time
-          //number
+          AnimatedAppBar('설정', controller: scrollController,)
         ],
       ),
     );

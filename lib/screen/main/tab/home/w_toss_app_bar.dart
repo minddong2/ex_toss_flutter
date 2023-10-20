@@ -48,7 +48,7 @@ class _TossAppBarState extends State<TossAppBar> {
           Tap(
             onTap: () {
               setState(() {
-                _tappingCount--;
+                _tappingCount++;
               });
             },
             child: Image.asset(
